@@ -1,2 +1,2 @@
-# Covid19StudentManagementSystem
+# DormStudentTemperature-ManagementSystem
 course project for oop
