@@ -1,6 +1,6 @@
 import java.util.Scanner; //import 키워드를 사용하여 라이브러리를 선언
 
-public class MenuManager {  //class 이름을 ManagerMenu로 지정
+public class MenuManager {  //class 이름을 MenuManager로 지정
 
 	public static void main(String[] args) {
 		int num = 0; //정수형 변수 num을 0으로 지정
