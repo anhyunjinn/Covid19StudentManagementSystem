@@ -1,47 +1,85 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 //import 키워드를 이용하여 라이브러리 선언
 
+import student.ChilamDormitory;
+import student.Student;
+
 public class Manager {
-	Student student;
+	ArrayList<Student> students = new ArrayList<Student>();
 	QandA qna;
 	Scanner input;
 	Manager(Scanner input){//Manager 생성자 선언
 		this.input = input;//모든 메소드에서 input 값을 사용할 수 있도록 설정
 	}
 
-	public void addStudent() {//addStudent 메소드 생성
-		student = new Student();//student에 관한 메모리를 불러옴
-		System.out.print("Enter the Student ID : ");
-		student.id = input.nextInt();
-		//input에서 가져온 nextInt함수를 이용하여 콘솔에서 읽어온 사용자가 입력한 정수를 student.id에 저장
-		System.out.print("Enter the Student Name : ");
-		student.name = input.next();
-		//input에서 가져온 next함수를 이용하여 콘솔에서 읽어온 사용자가 입력한 문자를 student.name에 저장
-		System.out.print("Enter the Dormitory room number : ");
-		student.roomnumber = input.nextInt();
-		//input에서 가져온 nextInt함수를 이용하여 콘솔에서 읽어온 사용자가 입력한 정수를 student.roomnumber에 저장
-		student.printInfo();//printInfo 메소드 실행
-		System.out.println("Back to the menu");
-	}
-
-	public void addTemp() {//addTemp 메소드 생성
-		System.out.print("Enter the student ID to add the temperature information : ");
-		int studentID = input.nextInt();
-		//input에서 가져온 nextInt 함수를 이용하여 콘솔에서 읽어온 사용자가 입력한 정수를 studentID에 저장
-		if (student.id == studentID) {
-			System.out.print("Enter the student's temperature : ");
-			student.temp = input.nextDouble();
-			//input에서 가져온 nextInt 함수를 이용하여 콘솔에서 읽어온 사용자가 입력한 실수를 student.temp에 저장
-			student.addTemperature();//addTemperature 메소드 실행
+	public void addStuInfo() {//addStudent 메소드 생성
+		int kind = 0;
+		Student student;
+		while(kind != 1 && kind != 2) {
+			System.out.println("1 for Gajwa Dormitory");
+			System.out.println("2 for Chilam Dormitory");
+			System.out.print("Select number for Dormitory Kind "
+					+ "between 1 and 2: ");
+			kind = input.nextInt();
+			if (kind == 1) {
+				student = new Student();
+				student.getUserInput(input);
+				students.add(student);
+				break;
+			}
+			else if (kind == 2) {
+				student = new ChilamDormitory();
+				student.getUserInput(input);
+				students.add(student);
+				break;
+			}
+			else {
+				System.out.print("Select number for Dormitory Kind: ");
+			}
 		}
 		System.out.println("Back to the menu");
 	}
 
-	public void showPN() {//showPN 메소드 생성
-		System.out.println("Administrator's Phone number is 010-XXXX-XXXX");
-		//관리자의 전화번호 출력
+	public void deleteStudent() {//deleteStudent 메소드 생성
+		System.out.print("Student ID: ");
+		int studentId = input.nextInt();
+		int index = -1;
+		for (int i=0; i<students.size(); i++) {
+			if (students.get(i).getId() == studentId) {
+				index = i;
+				break;
+			}
+		}
+
+		if (index>=0) {
+			students.remove(index);
+			System.out.println("the student "+ studentId + " is deleted");
+		}
+		else {
+			System.out.println("the student has not been registered");
+			return;
+		}
 		System.out.println("Back to the menu");
 	}
+
+	public void editTemperature() {//editTemperature 메소드 생성
+		System.out.print("Student ID: ");
+		int studentId = input.nextInt();
+		for (int i = 0; i<students.size(); i++) {
+			Student student = students.get(i);
+			if (student.getId() == studentId) {
+				System.out.print("Student temperature: ");
+				double temp = input.nextDouble();
+				student.setTemp(temp);
+			}
+			else {
+				System.out.println("the student has not been registered");
+				return;
+			}
+		}
+	}
+
 
 	public void QnA() {//QnA 메소드 생성
 		qna = new QandA();//qna에 관한 메모리를 불러옴

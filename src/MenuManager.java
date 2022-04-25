@@ -12,9 +12,9 @@ public class MenuManager {  //class 이름을 MenuManager로 지정
 		while(num!=5) { //num이 5가 아닐 동안 반복
 			System.out.println("### Dorm Student Temperature"
 					+ " Management Menu ###");
-			System.out.println("1. Add Student");
-			System.out.println("2. Add Temperature");
-			System.out.println("3. Administrator's Phone number");
+			System.out.println("1. Add Student Information");
+			System.out.println("2. Delete Student");
+			System.out.println("3. Edit Temperature");
 			System.out.println("4. Q&A");
 			System.out.println("5. Exit");
 			System.out.printf("Select one number between 1 - 5 : ");
@@ -23,15 +23,15 @@ public class MenuManager {  //class 이름을 MenuManager로 지정
 			//input에서 가져온 nextInt 함수를 이용하여 콘솔에서 읽어온 사용자가 입력한 정수를 num에 저장
 
 			if (num==1) {//num이 1일 때
-				m.addStudent(); //addStudent method 사용
+				m.addStuInfo();  //addStuInfo method 사용
 			}
 
 			else if (num==2) {//num이 2일 때
-				m.addTemp(); //addTemp method 사용
+				m.deleteStudent(); //deleteStudent method 사용
 			}
 
-			else if (num==3) {   //num이 3일 때
-				m.showPN();  //showPN method 사용
+			else if (num==3) { //num이 3일 때
+				m.editTemperature(); //editTemperature method 사용
 			}
 
 			else if (num==4) {  //num이 4일 때
