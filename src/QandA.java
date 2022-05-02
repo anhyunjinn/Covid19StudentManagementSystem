@@ -1,4 +1,3 @@
-
 public class QandA {//class 이름을 QandA로 설정
 	String question;//변수 question 설정
 	
