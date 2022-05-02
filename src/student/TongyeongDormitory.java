@@ -2,7 +2,7 @@ package student;
 import java.util.Scanner; //import 키워드를 사용하여 라이브러리를 선언
 
 public class TongyeongDormitory extends Student {
-	//Student 클래스를 상속받는 class 이름을 ChilamDormitory로 설정
+	//Student 클래스를 상속받는 class 이름을 TongyeongDormitory로 설정
 	public TongyeongDormitory(DormitoryKind kind) { //생성자 선언
 		super(kind);
 	}
