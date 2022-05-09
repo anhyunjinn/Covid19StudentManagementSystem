@@ -1,13 +1,15 @@
+//import 키워드를 이용하여 라이브러리 선언
 import java.util.ArrayList;
 import java.util.Scanner;
 import student.ChilamDormitory;
 import student.DormitoryKind;
-import student.Student;
-import student.TongyeongDormitory; //import 키워드를 이용하여 라이브러리 선언
+import student.GajwaDormitory;
+import student.TongyeongDormitory;
+import student.UserInput;
 
 public class Manager {  //class 이름을 Manager로 설정
-	ArrayList<Student> students = new ArrayList<Student>();
-	//students 배열 생성
+	ArrayList<UserInput> students = new ArrayList<UserInput>();
+	//UserInput을 가리키는 students 배열 생성
 	QandA qna;
 	Scanner input;
 	Manager(Scanner input){//Manager 생성자 선언
@@ -16,7 +18,7 @@ public class Manager {  //class 이름을 Manager로 설정
 
 	public void addStuInfo() {//addStudent 메소드 생성
 		int kind = 0;
-		Student student;  //Student 클래스를 가리키는 객체 student 선언
+		UserInput userInput;  //UserInput Interface를 가리키는 객체 userInput 선언
 		while(kind != 1 && kind != 2) { //while 반복문 실행
 			System.out.println("1 for Gajwa Dormitory");
 			System.out.println("2 for Chilam Dormitory");
@@ -26,30 +28,30 @@ public class Manager {  //class 이름을 Manager로 설정
 			kind = input.nextInt();
 			//input에서 가져온 nextInt함수를 이용하여 콘솔에서 읽어온 사용자가 입력한 정수를 kind에 저장
 			if (kind == 1) { //kind가 1일 때
-				student = new Student(DormitoryKind.GajwaDormitory);
-				//Student class를 가리키는 객체 student 선언
-				student.getUserInput(input);
-				//Student class의 getUserInput 메소드 실행
-				students.add(student); //students 배열에 student 값 저장
-				student.printInfo(); //Student class의 printInfo 메소드 실행
+				userInput = new GajwaDormitory(DormitoryKind.GajwaDormitory);
+				//GajwaDormitory를 가리키는 userInput 객체 선언
+				userInput.getUserInput(input);
+				//userInput의 getUserInput 메소드 실행
+				students.add(userInput); //students 배열에 userInput 값 저장
+				userInput.printInfo(); //userInput의 printInfo 메소드 실행
 				break;
 			}
 			else if (kind == 2) { //kind가 2일 때
-				student = new ChilamDormitory(DormitoryKind.ChilamDormitory);
-				//ChilamDormitory class를 가리키는 객체 student 선언
-				student.getUserInput(input);
-				//ChilamDormitory class의 getUserInput 메소드 실행
-				students.add(student); //students 배열에 student 값 저장
-				student.printInfo();//ChilamDormitory class의 printInfo 메소드 실행
+				userInput = new ChilamDormitory(DormitoryKind.ChilamDormitory);
+				//ChilamDormitory class를 가리키는 객체 userInput 선언
+				userInput.getUserInput(input);
+				//userInput의 getUserInput 메소드 실행
+				students.add(userInput); //students 배열에 userInput 값 저장
+				userInput.printInfo();//userInput의 printInfo 메소드 실행
 				break;
 			}
 			else if (kind == 3) { //kind가 3일 때
-				student = new TongyeongDormitory(DormitoryKind.TongyeongDormitory);
-				//TongyeongDormitory class를 가리키는 객체 student 선언
-				student.getUserInput(input);
-				//TongyeongDormitory class의 getUserInput 메소드 실행
-				students.add(student); //students 배열에 student 값 저장
-				student.printInfo();//TongyeongDormitory class의 printInfo 메소드 실행
+				userInput = new TongyeongDormitory(DormitoryKind.TongyeongDormitory);
+				//TongyeongDormitory class를 가리키는 객체 userInput 선언
+				userInput.getUserInput(input);
+				//userInput의 getUserInput 메소드 실행
+				students.add(userInput); //students 배열에 userInput 값 저장
+				userInput.printInfo();//userInput의 printInfo 메소드 실행
 				break;
 			}
 			else {
@@ -90,12 +92,12 @@ public class Manager {  //class 이름을 Manager로 설정
 		int studentId = input.nextInt();
 		//input에서 가져온 nextInt함수를 이용하여 콘솔에서 읽어온 사용자가 입력한 정수를 studentId에 저장
 		for (int i = 0; i<students.size(); i++) {
-			Student student = students.get(i);
-			if (student.getId() == studentId) {
+			UserInput userInput = students.get(i);
+			if (userInput.getId() == studentId) {
 				System.out.print("Student temperature: ");
 				double temp = input.nextDouble();
 				//input에서 가져온 nextDouble함수를 이용하여 콘솔에서 읽어온 사용자가 입력한 정수를 temp에 저장
-				student.setTemp(temp);  //setTemp 메소드를 이용하여 temp 값 저장
+				userInput.setTemp(temp);  //setTemp 메소드를 이용하여 temp 값 저장
 			}
 			else {
 				System.out.println("the student has not been registered");

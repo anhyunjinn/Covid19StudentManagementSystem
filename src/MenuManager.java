@@ -20,7 +20,7 @@ public class MenuManager {  //class 이름을 MenuManager로 지정
 			System.out.printf("Select one number between 1 - 5 : ");
 			//메뉴 및 사용자에게 숫자를 입력받을 문장 출력
 			num = input.nextInt();
-			//input에서 가져온 nextInt 함수를 이용하여 콘솔에서 읽어온 사용자가 입력한 정수를 num에 저장
+			//input에서 가져온 nextInt를 이용하여 콘솔에서 읽어온 사용자가 입력한 정수를 num에 저장
 
 			if (num==1) {//num이 1일 때
 				m.addStuInfo();  //addStuInfo method 사용
