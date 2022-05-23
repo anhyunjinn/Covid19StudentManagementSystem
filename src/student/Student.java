@@ -1,15 +1,18 @@
 package student;
-import java.io.Serializable;
+
 //import 키워드로 라이브러리 선언
 import java.util.Scanner;
 import exceptions.EmailFormatException;
+import java.io.Serializable;
 
 public abstract class Student implements UserInput, Serializable {
+	//UserInput class를 implement 하고 Serialize 하는 추상화 class 이름을 Student로 설정
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 7385961195489286624L;
-	//추상화 class 이름을 Student로 설정
+	//시리얼 넘버 받기
+
 	//각각의 변수 선언 (학생의 이름, id, 방번호, 성별, 체온, 이메일)
 	protected String name;
 	protected int id;

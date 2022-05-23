@@ -9,16 +9,18 @@ import student.GajwaDormitory;
 import student.TongyeongDormitory;
 import student.UserInput;
 
-public class Manager implements Serializable{  //class 이름을 Manager로 설정
+public class Manager implements Serializable{
+	//Serializable을 implement하는 class 이름을 Manager로 설정
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1530146543357958383L;
+	//시리얼 넘버 받기
 	
 	ArrayList<UserInput> students = new ArrayList<UserInput>();
 	//UserInput을 가리키는 students 배열 생성
-	transient QandA qna;
-	transient Scanner input;
+	transient QandA qna;  //qna일 때를 제외
+	transient Scanner input;  //input일 때를 제외
 	Manager(Scanner input){//Manager 생성자 선언
 		this.input = input;//모든 메소드에서 input 값을 사용할 수 있도록 설정
 	}
@@ -120,7 +122,6 @@ public class Manager implements Serializable{  //class 이름을 Manager로 설정
 			}
 		}
 	}
-
 
 	public void QnA() {//QnA 메소드 생성
 		qna = new QandA();//qna에 관한 메모리를 불러옴

@@ -1,7 +1,7 @@
 package student;
 
+//import 키워드를 사용하여 라이브러리를 선언
 import java.util.Scanner;
-
 import exceptions.EmailFormatException;
 
 public interface UserInput {  //interface 이름을 UserInput으로 설정
