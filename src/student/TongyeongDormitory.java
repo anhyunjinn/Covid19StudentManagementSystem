@@ -17,7 +17,7 @@ public class TongyeongDormitory extends Student implements UserInput{
 			//dormnum이 1이 아니고 2가 아닐동안 반복
 			System.out.print("What is your Dormitory number? (1 or 2 or 3)");
 			dormnum = input.nextInt();
-			//input에서 가져온 nextInt함수를 이용하여 콘솔에서 읽어온 사용자가 입력한 정수를 dormnum에 저장
+			//input에서 가져온 nextInt함수를 이용하여 콘솔에서 읽어온 정수를 dormnum에 저장
 			if (dormnum == 1) { //dormnum이 1일 때
 				System.out.println("You are Man");
 				String sex = "Man";

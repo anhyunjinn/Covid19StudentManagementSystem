@@ -1,4 +1,5 @@
 //import 키워드를 이용하여 라이브러리 선언
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -8,11 +9,16 @@ import student.GajwaDormitory;
 import student.TongyeongDormitory;
 import student.UserInput;
 
-public class Manager {  //class 이름을 Manager로 설정
+public class Manager implements Serializable{  //class 이름을 Manager로 설정
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1530146543357958383L;
+	
 	ArrayList<UserInput> students = new ArrayList<UserInput>();
 	//UserInput을 가리키는 students 배열 생성
-	QandA qna;
-	Scanner input;
+	transient QandA qna;
+	transient Scanner input;
 	Manager(Scanner input){//Manager 생성자 선언
 		this.input = input;//모든 메소드에서 input 값을 사용할 수 있도록 설정
 	}
@@ -56,7 +62,7 @@ public class Manager {  //class 이름을 Manager로 설정
 					userInput.printInfo();//userInput의 printInfo 메소드 실행
 					break;
 				}
-				else {
+				else { //1,2,3 외의 다른 정수를 입력하였을 때
 					System.out.print("Select number for Dormitory Kind: ");
 				}
 			} catch (InputMismatchException e) {//예외인 경우 (정수가 아닌 값을 입력하였을 때)

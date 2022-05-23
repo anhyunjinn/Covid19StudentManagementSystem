@@ -1,10 +1,15 @@
 package student;
-
+import java.io.Serializable;
+//import 키워드로 라이브러리 선언
 import java.util.Scanner;
-
 import exceptions.EmailFormatException;
 
-public abstract class Student { //추상화 class 이름을 Student로 설정
+public abstract class Student implements UserInput, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7385961195489286624L;
+	//추상화 class 이름을 Student로 설정
 	//각각의 변수 선언 (학생의 이름, id, 방번호, 성별, 체온, 이메일)
 	protected String name;
 	protected int id;
@@ -88,6 +93,7 @@ public abstract class Student { //추상화 class 이름을 Student로 설정
 	}
 
 	public void setEmail(String email) throws EmailFormatException {
+		//EmailFormatException을 throw 하는 메소드 setEmail
 		if (!email.contains("@") && !email.equals("")) {
 			//email에 @가 포함되어있지 않고 공백인 상태가 아닐 때
 			throw new EmailFormatException(); //예외인 경우 throw

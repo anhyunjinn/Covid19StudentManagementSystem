@@ -9,8 +9,8 @@ public class ChilamDormitory extends Student implements UserInput{
 	}	
 
 	public void getUserInput(Scanner input) { //getUserInput 메소드 생성
-		this.setUserID(input);
-		this.setUserName(input);
+		this.setUserID(input);//setUserID 메소드 실행
+		this.setUserName(input);//setUserName 메소드 실행
 		int dormnum = 0;
 		while (dormnum != 1 && dormnum !=2) {
 			//dormnum이 1이 아니고 2가 아닐동안 반복
