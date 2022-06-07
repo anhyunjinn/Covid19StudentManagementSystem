@@ -2,18 +2,15 @@ package gui;
 
 //import 키워드를 사용하여 라이브러리를 선언
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-import listeners.ButtonViewListener;
-
 public class StudentAdder extends JPanel {
 	//JPanel을 상속받는 class의 이름을 StudentAdder로 설정
 	
-	WindowFrame frame;
+	WindowFrame frame; //WindowFrame을 불러옴
 	
 	public StudentAdder(WindowFrame frame) { //생성자 생성
 		this.frame = frame;
@@ -76,8 +73,7 @@ public class StudentAdder extends JPanel {
 		panel.add(labelEmail); //panel에 labelEmail 추가
 		panel.add(fieldEmail); //panel에 fieldEmail 추가
 		
-		JButton button = new JButton("Save");
-		panel.add(button); //panel에 button을 추가
+		panel.add(new JButton("Save")); //panel에 button을 추가
 		panel.add(new JButton("Cancel")); //panel에 button을 추가
 		SpringUtilities.makeCompactGrid(panel, 7, 2, 6, 6, 6, 6);
 		

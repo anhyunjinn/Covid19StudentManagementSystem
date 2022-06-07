@@ -3,21 +3,17 @@ package gui;
 //import 키워드를 사용하여 라이브러리를 선언
 import java.awt.BorderLayout;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
 import listeners.ButtonAddListener;
 import listeners.ButtonViewListener;
 
 public class MenuSelection extends JPanel {
 	//JPanel을 상속받는 class의 이름을 MenuSelection으로 설정
-	
-	WindowFrame frame;
+	WindowFrame frame; //WindowFrame을 불러옴
 	
 	public MenuSelection(WindowFrame frame) { //생성자 생성	
 		this.frame = frame;
-		
 		this.setLayout(new BorderLayout());
 		//panel의 기본 default 값을 BorderLayout으로 설정
 		
@@ -34,6 +30,8 @@ public class MenuSelection extends JPanel {
 		
 		button1.addActionListener(new ButtonAddListener(frame));
 		button4.addActionListener(new ButtonViewListener(frame));
+		//button1을 누르면 ButtonAddListener이 작동하도록함
+		//button4를 누르면 ButtonViewListener이 작동하도록함
 		
 		panel1.add(label); //panel1에 label 추가
 		panel2.add(button1); //panel2에 button1 추가
