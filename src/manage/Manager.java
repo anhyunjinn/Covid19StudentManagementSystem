@@ -1,11 +1,14 @@
+package manage;
 //import 키워드를 이용하여 라이브러리 선언
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
 import student.ChilamDormitory;
 import student.DormitoryKind;
 import student.GajwaDormitory;
+import student.Student;
 import student.TongyeongDormitory;
 import student.UserInput;
 
@@ -137,5 +140,13 @@ public class Manager implements Serializable{
 
 	public void exit() {//exit 메소드 생성
 		System.out.println("Close the menu");
+	}
+	
+	public int size() {
+		return students.size();
+	}
+	
+	public UserInput get(int index) {
+		return (Student) students.get(index);
 	}
 }

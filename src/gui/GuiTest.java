@@ -2,11 +2,7 @@ package gui;
 
 public class GuiTest { //class 捞抚阑 GuiTest肺 汲沥
 	public static void main(String[] args) {
-		MenuSelection menuselection = new MenuSelection();
-		//MenuSelection狼 按眉 积己
-		StudentAdder studentadder = new StudentAdder();
-		//StudentAdder狼 按眉 积己
-		StudentViewer studentviewer = new StudentViewer();
-		//StudentViewer狼 按眉 积己
+		WindowFrame frame = new WindowFrame(null);
+		//WindowFrame狼 按眉 积己
 	}
 }

@@ -8,6 +8,16 @@ public interface UserInput {  //interface 이름을 UserInput으로 설정
 	
 	public int getId();
 	
+	public String getName();
+	
+	public String getEmail();
+	
+	public double getTemp();
+	
+	public String getSex();
+	
+	public int getRoomnumber();
+	
 	public void setId(int id);
 	
 	public void setName(String name);

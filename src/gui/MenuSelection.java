@@ -7,13 +7,19 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class MenuSelection extends JFrame {
-	//JFrame을 상속받는 class의 이름을 MenuSelection으로 설정
+import listeners.ButtonAddListener;
+import listeners.ButtonViewListener;
+
+public class MenuSelection extends JPanel {
+	//JPanel을 상속받는 class의 이름을 MenuSelection으로 설정
 	
-	public MenuSelection() { //생성자 생성
-		this.setSize(300, 300); //frame 크기 설정
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//x 버튼을 누르면 창이 종료됨
+	WindowFrame frame;
+	
+	public MenuSelection(WindowFrame frame) { //생성자 생성	
+		this.frame = frame;
+		
+		this.setLayout(new BorderLayout());
+		//panel의 기본 default 값을 BorderLayout으로 설정
 		
 		JPanel panel1 = new JPanel(); //panel panel1 생성
 		JPanel panel2 = new JPanel(); //panel panel2 생성
@@ -23,8 +29,11 @@ public class MenuSelection extends JFrame {
 		JButton button1 = new JButton("Add Student Information");
 		JButton button2 = new JButton("Delete Student");
 		JButton button3 = new JButton("Edit Temperature");
-		JButton button4 = new JButton("Q&A");
+		JButton button4 = new JButton("View Student Information");
 		JButton button5 = new JButton("Exit");
+		
+		button1.addActionListener(new ButtonAddListener(frame));
+		button4.addActionListener(new ButtonViewListener(frame));
 		
 		panel1.add(label); //panel1에 label 추가
 		panel2.add(button1); //panel2에 button1 추가
@@ -35,6 +44,5 @@ public class MenuSelection extends JFrame {
 		
 		this.add(panel1, BorderLayout.NORTH);//프레임에 panel1을 레이아웃의 북쪽에 배치
 		this.add(panel2, BorderLayout.CENTER);//프레임에 panel2를 레이아웃의 중앙에 배치
-		this.setVisible(true); //윈도우 창에 나타나도록 설정
 	}
 }

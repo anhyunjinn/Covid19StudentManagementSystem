@@ -1,3 +1,4 @@
+package manage;
 //import 키워드를 사용하여 라이브러리를 선언
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -6,7 +7,9 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
-import java.util.Scanner; 
+import java.util.Scanner;
+
+import gui.WindowFrame;
 import log.EventLogger;
 
 public class MenuManager {  //class 이름을 MenuManager로 지정
@@ -21,8 +24,11 @@ public class MenuManager {  //class 이름을 MenuManager로 지정
 		Manager m = getObject("m.ser"); //Manager 클래스를 나타내는 m이 getObject 메소드라고 둠
 		if (m == null) { //m이 공백 값이라면
 			m = new Manager(input); //Manager class에 해당하는 객체 생성
+		} else {
+			m.input = input;
 		}
 		
+		WindowFrame frame = new WindowFrame(m);
 		selectMenu(input, m); //selectMenu 메소드 실행
 		putObject(m, "m.ser"); //putObject 메소드 실행
 	}
