@@ -6,14 +6,19 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
+import event.StudentAdderListener;
+import event.StudentCancelListener;
+import manage.Manager;
 
 public class StudentAdder extends JPanel {
 	//JPanel을 상속받는 class의 이름을 StudentAdder로 설정
 	
 	WindowFrame frame; //WindowFrame을 불러옴
+	Manager m;//Manager을 불러옴
 	
-	public StudentAdder(WindowFrame frame) { //생성자 생성
+	public StudentAdder(WindowFrame frame, Manager m) { //생성자 생성
 		this.frame = frame;
+		this.m = m;
 		
 		JPanel panel = new JPanel(); //panel panel 선언
 		panel.setLayout(new SpringLayout());
@@ -70,11 +75,19 @@ public class StudentAdder extends JPanel {
 		JTextField fieldEmail = new JTextField(10);
 		//textfield fieldEmail 생성
 		labelEmail.setLabelFor(fieldEmail);
+		
+		JButton saveButton = new JButton("Save"); //saveButton 생성
+		saveButton.addActionListener(new StudentAdderListener(fieldID, fieldName, fieldSex,
+				fieldRoomnumber, fieldTemp, fieldEmail, m));
+		
+		JButton cancelButton = new JButton("Cancel"); //cancelButton 생성
+		cancelButton.addActionListener(new StudentCancelListener(frame));
+		
 		panel.add(labelEmail); //panel에 labelEmail 추가
 		panel.add(fieldEmail); //panel에 fieldEmail 추가
+		panel.add(saveButton); //panel에 saveButton을 추가
+		panel.add(cancelButton); //panel에 cancelButton을 추가
 		
-		panel.add(new JButton("Save")); //panel에 button을 추가
-		panel.add(new JButton("Cancel")); //panel에 button을 추가
 		SpringUtilities.makeCompactGrid(panel, 7, 2, 6, 6, 6, 6);
 		
 		this.add(panel); //panel을 추가

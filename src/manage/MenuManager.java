@@ -85,7 +85,7 @@ public class MenuManager {  //class 이름을 MenuManager로 지정
 		System.out.println("3. Edit Temperature");
 		System.out.println("4. Q&A");
 		System.out.println("5. Exit");
-		System.out.printf("Select one number between 1 - 5 : ");
+		System.out.println("Select one number between 1 - 5 : ");
 		//메뉴 및 사용자에게 숫자를 입력받을 문장 출력
 	}
 	

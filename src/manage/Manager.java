@@ -27,6 +27,21 @@ public class Manager implements Serializable{
 	Manager(Scanner input){//Manager 생성자 선언
 		this.input = input;//모든 메소드에서 input 값을 사용할 수 있도록 설정
 	}
+	
+	public void addStuInfo(String id, String name, String sex,
+			String roomnumber, String temp, String email) {
+		UserInput userInput = new GajwaDormitory(DormitoryKind.GajwaDormitory);
+		//GajwaDormitory를 가리키는 userInput 객체 선언
+		userInput.getUserInput(input);
+		//userInput의 getUserInput 메소드 실행
+		students.add(userInput); //students 배열에 userInput 값 저장
+		userInput.printInfo(); //userInput의 printInfo 메소드 실행
+	}
+	
+	public void addStuInfo(UserInput userInput) {
+		students.add(userInput); //students 배열에 userInput 값 저장
+		userInput.printInfo(); //userInput의 printInfo 메소드 실행
+	}
 
 	public void addStuInfo() {//addStudent 메소드 생성
 		int kind = 0;

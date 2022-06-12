@@ -22,7 +22,7 @@ public class WindowFrame extends JFrame {
 		this.m = m; //Manager狼 按眉 积己
 		menuselection = new MenuSelection(this);
 		//MenuSelection狼 按眉 积己
-		studentadder = new StudentAdder(this);
+		studentadder = new StudentAdder(this, this.m);
 		//StudentAdder狼 按眉 积己
 		studentviewer = new StudentViewer(this, this.m);
 		//StudentViewer狼 按眉 积己
