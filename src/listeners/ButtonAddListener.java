@@ -9,18 +9,18 @@ import gui.WindowFrame;
 
 public class ButtonAddListener implements ActionListener {
 	//ActionListener을 implements하는 class의 이름을 ButtonViewListener로 설정
-	
-	WindowFrame frame;
-	
-	public ButtonAddListener(WindowFrame frame) {
+
+	WindowFrame frame; //WindowFrame을 불러옴
+
+	public ButtonAddListener(WindowFrame frame) { //생성자 생성
 		this.frame = frame;
 	}
 
-	@Override
+	@Override //actionPerformed 메소드 오버라이드
 	public void actionPerformed(ActionEvent e) {
-		JButton b = (JButton)e.getSource();
-		StudentAdder adder = frame.getStudentadder();
-		frame.setupPanel(adder);
+		frame.getContentPane().removeAll();
+		frame.getContentPane().add(frame.getStudentadder());
+		frame.revalidate();
+		frame.repaint();		
 	}
-
 }
