@@ -1,6 +1,5 @@
 package event;
 
-//import 키워드를 사용하여 라이브러리를 선언
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileInputStream;
@@ -11,25 +10,20 @@ import gui.StudentViewer;
 import gui.WindowFrame;
 import manage.Manager;
 
-public class ButtonViewerListener implements ActionListener {
-	//ActionListener을 implements 하는 class 이름을 ButtonViewerListener로 설정
-	
-	WindowFrame frame; //WindowFrame을 불러옴
-	
-	public ButtonViewerListener (WindowFrame frame) { //생성자 생성
+public class ButtonViewListener implements ActionListener{
+
+	WindowFrame frame;
+
+	public ButtonViewListener (WindowFrame frame) {
 		this.frame = frame;
 	}
 
-	@Override  //actionPerformed 메소드 오버라이드
+	@Override
 	public void actionPerformed(ActionEvent e) {
-		StudentViewer studentviewer = frame.getStudentviewer();
+		StudentViewer viewer = frame.getStudentviewer();
 		Manager m = getObject("m.ser");
-		studentviewer.setM(m);
-				
-		frame.getContentPane().removeAll();
-		frame.getContentPane().add(studentviewer);
-		frame.revalidate();
-		frame.repaint();
+		viewer.setM(m);
+		frame.setupPanel(viewer);
 	}
 
 	public static Manager getObject(String filename) {
