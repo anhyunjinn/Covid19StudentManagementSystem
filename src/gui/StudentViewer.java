@@ -22,7 +22,6 @@ public class StudentViewer extends JPanel{
 	public void setM(Manager m) {
 		this.m = m;
 		this.removeAll();
-		
 		DefaultTableModel model = new DefaultTableModel();
 		//tablemodel model »ý¼º
 		

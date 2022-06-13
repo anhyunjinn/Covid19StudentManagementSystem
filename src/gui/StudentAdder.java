@@ -77,8 +77,8 @@ public class StudentAdder extends JPanel {
 		labelEmail.setLabelFor(fieldEmail);
 		
 		JButton saveButton = new JButton("Save"); //saveButton 持失
-		saveButton.addActionListener(new StudentAdderListener(fieldID, fieldName, fieldSex,
-				fieldRoomnumber, fieldTemp, fieldEmail, m));
+		saveButton.addActionListener(new StudentAdderListener(fieldID, fieldName,
+				fieldSex, fieldRoomnumber, fieldTemp, fieldEmail, m));
 		
 		JButton cancelButton = new JButton("Cancel"); //cancelButton 持失
 		cancelButton.addActionListener(new StudentCancelListener(frame));

@@ -21,5 +21,4 @@ public class ButtonAdderListener implements ActionListener {
 		frame.revalidate();
 		frame.repaint();		
 	}
-
 }

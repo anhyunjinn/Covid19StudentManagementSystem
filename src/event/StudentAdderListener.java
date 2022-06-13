@@ -22,8 +22,7 @@ public class StudentAdderListener implements ActionListener {
 		JTextField fieldRoomnumber;
 		JTextField fieldTemp;
 		JTextField fieldEmail;
-		
-		Manager m;
+		Manager m;		//JTextField들과 Manager을 불러옴
 		
 	public StudentAdderListener(JTextField fieldID,
 			JTextField fieldName, JTextField fieldSex,
